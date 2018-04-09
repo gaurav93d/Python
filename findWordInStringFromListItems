@@ -1,0 +1,18 @@
+input = "themanranafterit"
+dict = ["before", "table", "theta", "after", "where", "there", "bled", "said", "lead", "man", "her", "own", "the", "ran", "it"]
+
+def tokenize(str, dict):
+    words = []
+    cursor = 0
+    while cursor < len(str):
+        word = ''
+        for dic_index in range(len(dict)):
+            if dict[dic_index][0] == str[cursor] and dict[dic_index] == str[cursor:cursor+len(dict[dic_index])]:
+                if len(word) < len(dict[dic_index]):
+                    word = dict[dic_index]
+
+        cursor = cursor+len(word)
+        words.append(word)
+    return words
+
+print(tokenize(input, dict))
